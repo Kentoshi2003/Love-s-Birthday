@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Magical Birthday Website Design System */
+
+@layer base {
+  :root {
+    /* Magical Night Sky Colors */
+    --background: 222 84% 4%;
+    --foreground: 280 100% 95%;
+
+    /* Magical Cards and Surfaces */
+    --card: 240 30% 8%;
+    --card-foreground: 280 100% 95%;
+
+    --popover: 240 30% 8%;
+    --popover-foreground: 280 100% 95%;
+
+    /* Magical Primary - Golden Glow */
+    --primary: 45 100% 70%;
+    --primary-foreground: 240 30% 8%;
+
+    /* Magical Secondary - Aurora Purple */
+    --secondary: 280 60% 25%;
+    --secondary-foreground: 280 100% 95%;
+
+    /* Muted Magical */
+    --muted: 240 20% 15%;
+    --muted-foreground: 280 30% 70%;
+
+    /* Magical Accent - Aurora Pink */
+    --accent: 320 80% 60%;
+    --accent-foreground: 240 30% 8%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 280 100% 95%;
+
+    /* Borders and Inputs */
+    --border: 240 30% 20%;
+    --input: 240 30% 12%;
+    --ring: 45 100% 70%;
+
+    /* Magical Design Tokens */
+    --magical-gold: 45 100% 70%;
+    --magical-gold-glow: 45 100% 85%;
+    --magical-purple: 280 60% 50%;
+    --magical-pink: 320 80% 60%;
+    --magical-blue: 240 80% 60%;
+    --magical-deep-night: 222 84% 4%;
+    --magical-night: 240 30% 8%;
+    --magical-star-white: 60 100% 95%;
+
+    /* Magical Gradients */
+    --gradient-aurora: linear-gradient(135deg, hsl(320 80% 60%), hsl(280 60% 50%), hsl(240 80% 60%));
+    --gradient-night-sky: linear-gradient(180deg, hsl(222 84% 4%), hsl(240 30% 8%), hsl(240 20% 12%));
+    --gradient-golden-glow: radial-gradient(circle, hsl(45 100% 70% / 0.3), transparent 70%);
+    --gradient-magical-orb: radial-gradient(circle, hsl(45 100% 85% / 0.8), hsl(45 100% 70% / 0.4), transparent);
+
+    /* Magical Shadows */
+    --shadow-magical: 0 0 20px hsl(45 100% 70% / 0.3), 0 0 40px hsl(45 100% 70% / 0.1);
+    --shadow-aurora: 0 0 30px hsl(320 80% 60% / 0.4), 0 0 60px hsl(280 60% 50% / 0.2);
+    --shadow-deep: 0 20px 40px hsl(222 84% 4% / 0.8);
+
+    /* Magical Animations */
+    --transition-magical: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.3s ease-in-out;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .magical-text {
+    font-family: 'Playfair Display', serif;
+    @apply text-transparent bg-clip-text;
+    background-image: var(--gradient-aurora);
+  }
+
+  .magical-button {
+    background: var(--gradient-magical-orb);
+    box-shadow: var(--shadow-magical);
+    transition: var(--transition-glow);
+    @apply relative overflow-hidden;
+  }
+
+  .magical-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-aurora);
+  }
+
+  .magical-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: var(--gradient-golden-glow);
+    opacity: 0;
+    transition: var(--transition-glow);
+    border-radius: inherit;
+  }
+
+  .magical-button:hover::before {
+    opacity: 1;
+    animation: magical-pulse 2s infinite;
+  }
+
+  .starry-background {
+    background: var(--gradient-night-sky);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .starry-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, hsl(var(--magical-star-white)), transparent),
+      radial-gradient(2px 2px at 40px 70px, hsl(var(--magical-star-white)), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(var(--magical-star-white)), transparent),
+      radial-gradient(1px 1px at 130px 80px, hsl(var(--magical-star-white)), transparent),
+      radial-gradient(2px 2px at 160px 30px, hsl(var(--magical-star-white)), transparent);
+    background-size: 200px 100px;
+    animation: twinkle 4s infinite;
+  }
+
+  @keyframes magical-pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.1) rotate(180deg); opacity: 0.7; }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-15px) rotate(2deg); }
+    66% { transform: translateY(-5px) rotate(-1deg); }
+  }
+
+  @keyframes magical-glow {
+    0%, 100% { 
+      filter: brightness(1) drop-shadow(0 0 8px hsl(var(--magical-gold) / 0.4));
+      transform: scale(1);
+    }
+    50% { 
+      filter: brightness(1.3) drop-shadow(0 0 25px hsl(var(--magical-gold) / 0.8));
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+  }
+
+  @keyframes aurora-dance {
+    0%, 100% { 
+      background: linear-gradient(135deg, hsl(320 80% 60% / 0.3), hsl(280 60% 50% / 0.2), hsl(240 80% 60% / 0.3));
+    }
+    50% { 
+      background: linear-gradient(135deg, hsl(240 80% 60% / 0.3), hsl(320 80% 60% / 0.2), hsl(280 60% 50% / 0.3));
+    }
+  }
+
+  @keyframes particle-drift {
+    0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) translateX(10px) rotate(120deg); }
+    66% { transform: translateY(-10px) translateX(-5px) rotate(240deg); }
+    100% { transform: translateY(0px) translateX(0px) rotate(360deg); }
+  }
+
+  .floating {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .magical-glow {
+    animation: magical-glow 3s ease-in-out infinite;
+  }
+
+  .typewriter {
+    border-right: 2px solid hsl(var(--magical-gold));
+    animation: typewriter-blink 1.2s infinite;
+  }
+
+  @keyframes typewriter-blink {
+    0%, 50% { border-color: hsl(var(--magical-gold)); }
+    51%, 100% { border-color: transparent; }
+  }
+
+  .shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, hsl(var(--magical-gold) / 0.3), transparent);
+    animation: shimmer 3s infinite;
+  }
+
+  .aurora-bg {
+    animation: aurora-dance 8s ease-in-out infinite;
+  }
+
+  .particle-float {
+    animation: particle-drift 6s ease-in-out infinite;
+  }
+
+  .magical-card {
+    backdrop-filter: blur(20px);
+    background: linear-gradient(135deg, 
+      hsl(var(--magical-night) / 0.8), 
+      hsl(var(--magical-night) / 0.6)
+    );
+    border: 1px solid hsl(var(--magical-gold) / 0.3);
+    box-shadow: 
+      0 0 30px hsl(var(--magical-gold) / 0.1),
+      inset 0 1px 0 hsl(var(--magical-gold) / 0.2);
+  }
+
+  .magical-card:hover {
+    border-color: hsl(var(--magical-gold) / 0.6);
+    box-shadow: 
+      0 0 50px hsl(var(--magical-gold) / 0.2),
+      inset 0 1px 0 hsl(var(--magical-gold) / 0.3);
+    transform: translateY(-5px);
+  }
+
+  .interactive-glow:hover {
+    filter: drop-shadow(0 0 20px hsl(var(--magical-gold) / 0.6));
+    transform: scale(1.1);
+  }
+}
